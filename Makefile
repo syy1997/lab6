@@ -16,6 +16,10 @@ libmyifttt.a:ifttt.o
 
 tempsensor.o:tempsensor.c
         $(CC) $(CFLAGS) -c -ansi $<
+        
+ifttt.o: 	ifttt.c 
+        $(CC) $(CFLAGS) -c -ansi $<       
+        
 tester.o:tester.c ifttt.h
         $(CC) $(CFLAGS) -c -ansi $<
 
