@@ -1,81 +1,173 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+ #include <stdlib.h>
 #include <time.h>
 #include <string.h>
 #include <math.h>
-int main(int argc, char *argv[])
-{
- int ifttt(char*where, char *v1, char *v2, char *v3);
- int status;
- char lower[] = ftoa(lt,&status);
-  char current[] = ftoa(ct,&status);
- char higher[] = ftoa(ht,&status);
-
-  double t1 = (double)time(NULL);
+int main() {
  
- wiringPiSetup () ;
- pinMode(4,INPUT);
- FILE *fd;
- int n;
-  int i;
-  int j;
- double temperature;
-  char temp[5];
- char buf[60];
- double ht =-100;
- double lt = -100;
- double ct =0;
- /* char value1[30];
-  char value2[30];
-  char value3[30];*/
-  while(1){
-   if((fd = fopen("/sys/bus/w1/devices/28-021312c86caa/w1_slave.txt", "r")) == (FILE *)NULL) {
- perror("open  failed");
- (void) exit(1);
- }
- n = fread(buf, 1, 60, fd);
+   FILE *fp;
+   char ch;
+   int num = 5;
+   long length;
+   int lt = -100;
+  int ct = -100;
+ int ht = -100;
+ float highest;
+ float lowest;
+ float current;
+ int prev;
+ char temperature[5];
+ int not = 0;
+ int temp = atoi(temperature);
+   int i;
+ double t1 = (double)time(NULL);
+ char* returnhigher = "highest temperature is";
+ char* returnlower="lowest temperature is";
+ char* returncurrent= "current temperature is;
+  char tp[100];
+ char tp2[100];
+ char tp3[100];
   
- if(n == 0) {
- perror("read fails!");
- exit(1);
- }
-  
- buf[n] = '\0';
-  for(i=0;i<n;i++){
-    if (buf[i]='\0'){
-    
-    j=i-1;
-    
-    }  
-    
-  }
-  for(i=0;i<5;i++){
-  temp[i] = j-i;
-  
+  while((double)time(NULL)-t1=1||(double)time(NULL)-t2>1){
+   fp = fopen("/sys/bus/w1/devices/28-021312c86caa/w1_slave.txt", "r");
+   if (fp == NULL) {
+      puts("cannot open this file");
+      exit(1);
+   }
+ 
+   fseek(fp, 0, SEEK_END);
+   length = ftell(fp);
+   fseek(fp, (length - num), SEEK_SET);
+ 
+   do {
+      ch = fgetc(fp);
+      temperature[not]=ch;
+   } while (ch != EOF);
+ 
+  for(i=0;i<not;i++){
+  temperature[i] = temperature[not-1-i];
   
   }
-  temperature = ((double)atoi(temp))/1000;
- 
+  if(ht = -100){ht = atoi(temp);}
+  if(lt = -100){lt = atoi(temp);}
+   prev = ct;
+  ct = atoi(temp);
+  if(ct > ht){ht = ct;}
+  if(ct <lt){lt = ct;}
   
-  while((double)time(NULL)-t1>=1&&fabs(temperature-ct>1))){
- ct = temperature;
-    if(lt ==-100){lt = ct;}
-    if(ht == -100){ht = ct;}
-    if(ct > ht){ht = ct;}
-    if(ct <lt){lt = ct;}
-    
- /*fprintf(stdout, "Read '%s'\n", buf);
-   */ 
+   current = ((float)ct)/1000;
+   lowest = ((float)lt)/1000;
+   highest = ((float)ht)/1000;
+    sprintf( tp,"%f",highest); 
+   strcat(returnhighter,tp);
+   sprintf( tp2, "%f",current); 
+   strcat(returncurrent,tp2);
+   sprintf( tp3,"%f",lowest ); 
+   strcat(returnlowest,tp3);
    
-    
- ifttt("https://maker.ifttt.com/trigger/temperature_change/with/key/doiyELHkyIVDVYX5-BEg1Y", higher, lower, current);   
-
-    
-   t1 = (double)time(NULL); 
-    break;
+   
+  if(ct - prev>=1000){
+  ifttt("https://maker.ifttt.com/trigger/temperature_change/with/key/doiyELHkyIVDVYX5-BEg1Y", returnhigher, returnlower, returncurrent); 
+  
   }
-    ct = temperature;
-   (void) fclose(fd);}
- return 0;
+  
+  
+  
+  tp = null;
+   tp2=null;
+   tp3=null;
+  
+  
+  
+  
+  
+   fclose(fp);
+   return(0);
+
+
+
+
+
+
+
+
+
+double t2 = (double)time(NULL);
+  }
+
+ 
 
 }
+
+
+
+
+/*void reverse(char *str, int len) 
+{ 
+    int i=0, j=len-1, temp; 
+    while (i<j) 
+    { 
+        temp = str[i]; 
+        str[i] = str[j]; 
+        str[j] = temp; 
+        i++; j--; 
+    } 
+} 
+  
+ 
+int intToStr(int x, char str[], int d) 
+{ 
+    int i = 0; 
+    while (x) 
+    { 
+        str[i++] = (x%10) + '0'; 
+        x = x/10; 
+    } 
+  
+   
+    while (i < d) 
+        str[i++] = '0'; 
+  
+    reverse(str, i); 
+    str[i] = '\0'; 
+    return i; 
+} 
+  
+
+void ftoa(float n, char *res, int afterpoint) 
+{ 
+    // Extract integer part 
+    int ipart = (int)n; 
+  
+    // Extract floating part 
+    float fpart = n - (float)ipart; 
+  
+    // convert integer part to string 
+    int i = intToStr(ipart, res, 0); 
+  
+    // check for display option after point 
+    if (afterpoint != 0) 
+    { 
+        res[i] = '.';  // add dot 
+  
+       
+        fpart = fpart * pow(10, afterpoint); 
+  
+        intToStr((int)fpart, res + i + 1, afterpoint); 
+    } 
+} 
+  
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
