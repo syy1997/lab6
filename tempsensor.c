@@ -23,7 +23,7 @@ int main() {
  double t1 = (double)time(NULL);
  char* returnhigher = "highest temperature is";
  char* returnlower="lowest temperature is";
- char* returncurrent= "current temperature is;
+ char* returncurrent= "current temperature is";
   char tp[100];
  char tp2[100];
  char tp3[100];
