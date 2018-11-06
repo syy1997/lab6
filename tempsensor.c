@@ -5,9 +5,14 @@
 #include <math.h>
 int main(int argc, char *argv[])
 {
+ int ifttt(char*where, char *v1, char *v2, char *v3);
  int status;
- double t1 = (double)time(NULL);
-  double currentTime = t1;
+ int[]lower = ftoa(lt,&status);
+  int[]current = ftoa(ct,&status);
+ int[]highter = ftoa(ht,&status);
+
+  double t1 = (double)time(NULL);
+ 
  wiringPiSetup () ;
  pinMode(4,INPUT);
  FILE *fd;
@@ -54,8 +59,8 @@ int main(int argc, char *argv[])
   
   while((double)time(NULL)-t1>=1&&fabs(temperature-ct>1))){
  ct = temperature;
-    if(lt =-100){lt = ct;}
-    if(ht = -100){ht = ct;}
+    if(lt ==-100){lt = ct;}
+    if(ht == -100){ht = ct;}
     if(ct > ht){ht = ct;}
     if(ct <lt){lt = ct;}
     
@@ -63,7 +68,7 @@ int main(int argc, char *argv[])
    */ 
    
     
- ifttt("https://maker.ifttt.com/trigger/temperature_change/with/key/doiyELHkyIVDVYX5-BEg1Y", ftoa(lt,&status), ftoa(lt,&status), ftoa(ct,&status));   
+ ifttt("https://maker.ifttt.com/trigger/temperature_change/with/key/doiyELHkyIVDVYX5-BEg1Y", highter, lower, current);   
 
     
    t1 = (double)time(NULL); 
