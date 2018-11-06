@@ -23,12 +23,12 @@ int main() {
  double t1 = (double)time(NULL);
  char* returnhigher = "highest temperature is";
  char* returnlower="lowest temperature is";
- char* returncurrent= "current temperature is";
+ char* returncurrent= "current temperature is;
   char tp[100];
  char tp2[100];
  char tp3[100];
   
-  while((double)time(NULL)-t1=1||(double)time(NULL)-t2>1){
+  while((double)time(NULL)-t1>=1){
    fp = fopen("/sys/bus/w1/devices/28-021312c86caa/w1_slave.txt", "r");
    if (fp == NULL) {
       puts("cannot open this file");
@@ -59,11 +59,11 @@ int main() {
    lowest = ((float)lt)/1000;
    highest = ((float)ht)/1000;
     sprintf( tp,"%f",highest); 
-   strcat(returnhighter,tp);
+   strcat(returnhigher,tp);
    sprintf( tp2, "%f",current); 
    strcat(returncurrent,tp2);
    sprintf( tp3,"%f",lowest ); 
-   strcat(returnlowest,tp3);
+   strcat(returnlower,tp3);
    
    
   if(ct - prev>=1000){
@@ -92,11 +92,11 @@ int main() {
 
 
 
-double t2 = (double)time(NULL);
+ t1 = (double)time(NULL);
   }
 
  
-
+return 0;
 }
 
 
