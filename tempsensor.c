@@ -23,10 +23,10 @@ int main() {
  double t1 = (double)time(NULL);
  char* returnhigher = "highest temperature is";
  char* returnlower="lowest temperature is";
- char* returncurrent= "current temperature is;
-  char tp[100];
- char tp2[100];
- char tp3[100];
+ char* returncurrent= "current temperature is";
+  char* tp;
+ char* tp2;
+ char* tp3;
   
   while((double)time(NULL)-t1>=1){
    fp = fopen("/sys/bus/w1/devices/28-021312c86caa/w1_slave.txt", "r");
@@ -73,9 +73,9 @@ int main() {
   
   
   
-  tp = null;
-   tp2=null;
-   tp3=null;
+  tp = "";
+   tp2="";
+   tp3="";
   
   
   
