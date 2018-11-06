@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
   char value2[30];
   char value3[30];*/
   while(1){
-   if((fd = fopen("/sys/bus/w1/devices/28-", "r")) == (FILE *)NULL) {
+   if((fd = fopen("/sys/bus/w1/devices/28-021312c86caa/w1_slave.txt", "r")) == (FILE *)NULL) {
  perror("open  failed");
  (void) exit(1);
  }
