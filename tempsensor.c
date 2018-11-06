@@ -32,7 +32,7 @@ int main() {
  while(1){
  
   while((double)time(NULL)-t1>=1){
-   printf("time>1");
+   printf("time>1\n");
    fp = fopen("/sys/bus/w1/devices/28-021312c86caa/w1_slave.txt", "r");
    if (fp == NULL) {
       puts("cannot open this file");
@@ -71,7 +71,7 @@ int main() {
    
    
   if(ct - prev>=1000){
-   printf("send message");
+   printf("send message\n");
   ifttt("https://maker.ifttt.com/trigger/temperature_change/with/key/doiyELHkyIVDVYX5-BEg1Y", returnhigher, returnlower, returncurrent); 
   
   }
