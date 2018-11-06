@@ -18,7 +18,7 @@ int main() {
  int prev;
  char temperature[5];
  int not = 0;
- int temp = atoi(temperature);
+ /*int temp = atoi(temperature);*/
    int i;
  double t1 = (double)time(NULL);
  char* returnhigher = "highest temperature is";
@@ -48,10 +48,10 @@ int main() {
   temperature[i] = temperature[not-1-i];
   
   }
-  if(ht = -100){ht = atoi(temp);}
-  if(lt = -100){lt = atoi(temp);}
+  if(ht == -100){ht = atoi(temperature);}
+  if(lt == -100){lt = atoi(temperature);}
    prev = ct;
-  ct = atoi(temp);
+  ct = atoi(temperature);
   if(ct > ht){ht = ct;}
   if(ct <lt){lt = ct;}
   
