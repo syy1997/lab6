@@ -7,9 +7,9 @@ int main(int argc, char *argv[])
 {
  int ifttt(char*where, char *v1, char *v2, char *v3);
  int status;
- int lower[] = ftoa(lt,&status);
-  int current[] = ftoa(ct,&status);
- int higher[] = ftoa(ht,&status);
+ char lower[] = ftoa(lt,&status);
+  char current[] = ftoa(ct,&status);
+ char higher[] = ftoa(ht,&status);
 
   double t1 = (double)time(NULL);
  
@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
   int i;
   int j;
  double temperature;
-  char temp[5]
+  char temp[5];
  char buf[60];
  double ht =-100;
  double lt = -100;
