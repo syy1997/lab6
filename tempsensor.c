@@ -21,6 +21,7 @@ int main() {
  /*int temp = atoi(temperature);*/
    int i;
  double t1 = (double)time(NULL);
+ 
  char* returnhigher = "highest temperature is";
  char* returnlower="lowest temperature is";
  char* returncurrent= "current temperature is";
@@ -28,6 +29,8 @@ int main() {
  char* tp2;
  char* tp3;
   
+ while(1){
+ 
   while((double)time(NULL)-t1>=1){
    printf("time>1");
    fp = fopen("/sys/bus/w1/devices/28-021312c86caa/w1_slave.txt", "r");
@@ -97,7 +100,7 @@ int main() {
  t1 = (double)time(NULL);
   }
 
- 
+ }
 return 0;
 }
 
