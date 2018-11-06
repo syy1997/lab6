@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
  int status;
  int[]lower = ftoa(lt,&status);
   int[]current = ftoa(ct,&status);
- int[]highter = ftoa(ht,&status);
+ int[]higher = ftoa(ht,&status);
 
   double t1 = (double)time(NULL);
  
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
    */ 
    
     
- ifttt("https://maker.ifttt.com/trigger/temperature_change/with/key/doiyELHkyIVDVYX5-BEg1Y", highter, lower, current);   
+ ifttt("https://maker.ifttt.com/trigger/temperature_change/with/key/doiyELHkyIVDVYX5-BEg1Y", higher, lower, current);   
 
     
    t1 = (double)time(NULL); 
